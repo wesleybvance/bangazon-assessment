@@ -10,4 +10,4 @@ class Product(models.Model):
     name = models.CharField(max_length=200)
     category_id = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='category')
     name = models.CharField(max_length=500)
-    price = models.DecimalField(max_digits=7)
+    price = models.DecimalField(max_digits=7, decimal_places=2)
