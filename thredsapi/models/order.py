@@ -1,7 +1,5 @@
 from django.db import models
 from .threds_user import ThredsUser
-from .order_product import OrderProduct
-
 
 class Order(models.Model):
     customer_id = models.ForeignKey(
@@ -9,7 +7,5 @@ class Order(models.Model):
 
     is_shipped = models.BooleanField(default=True)
     is_open = models.BooleanField(default=True)
-    order_product_id = models.ForeignKey(
-        OrderProduct, on_delete=models.CASCADE, related_name='orderProduct')
-    order_total = models.DecimalField(max_digits=10)
+    order_total = models.DecimalField(max_digits=10, decimal_places=2)
     payment_type = models.CharField(max_length=100)

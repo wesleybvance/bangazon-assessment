@@ -8,4 +8,4 @@ class OrderProduct(models.Model):
         Product, on_delete=models.CASCADE, related_name='product', default=1)
 
     order_id = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='order')
-    total = models.DecimalField(max_digits=10)
+    total = models.DecimalField(max_digits=10, decimal_places=2)
