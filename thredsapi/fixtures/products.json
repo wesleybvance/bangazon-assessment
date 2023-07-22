@@ -60,7 +60,7 @@
       }
   },
   {
-      "model": "rareapi.product",
+      "model": "thredsapi.product",
       "pk": 6,
       "fields": {
           "seller_id": 4,

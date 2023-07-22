@@ -35,28 +35,28 @@
       }
   },
   {
-      "model": "rareapi.category",
+      "model": "thredsapi.category",
       "pk": 6,
       "fields": {
           "name": "outerwear"
       }
   },
   {
-      "model": "rareapi.category",
+      "model": "thredsapi.category",
       "pk": 7,
       "fields": {
           "name": "shoes"
       }
   },
   {
-      "model": "rareapi.category",
+      "model": "thredsapi.category",
       "pk": 8,
       "fields": {
           "name": "sweater"
       }
   },
   {
-      "model": "rareapi.category",
+      "model": "thredsapi.category",
       "pk": 9,
       "fields": {
           "name": "accessory"
