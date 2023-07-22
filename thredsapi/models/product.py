@@ -8,6 +8,7 @@ class Product(models.Model):
         ThredsUser, on_delete=models.CASCADE, related_name='seller', default=1)
 
     name = models.CharField(max_length=200)
+    photo_url = models.CharField(max_length=500)
     category_id = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='category')
-    name = models.CharField(max_length=500)
+    description = models.CharField(max_length=500)
     price = models.DecimalField(max_digits=7, decimal_places=2)

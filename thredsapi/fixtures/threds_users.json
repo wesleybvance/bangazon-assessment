@@ -60,7 +60,7 @@
       }
   },
   {
-      "model": "rareapi.comment",
+      "model": "rareapi.thredsuser",
       "pk": 6,
       "fields": {
           "first_name": "Abigail",

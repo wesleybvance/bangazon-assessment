@@ -1,0 +1,74 @@
+[
+  {
+      "model": "thredsapi.product",
+      "pk": 1,
+      "fields": {
+          "seller_id": 1,
+          "name": "T-Rex Knit Sweater",
+          "category_id": 8,
+          "description": "T-Rex intarsia sweater, size medium. Navy blue with beige/brown detail",
+          "photo_url": "https://i.pinimg.com/736x/36/f0/37/36f0377594f17dbd713fb37ed1a4e86c.jpg",
+          "price": 32.00
+      }
+  },
+  {
+      "model": "thredsapi.product",
+      "pk": 2,
+      "fields": {
+          "seller_id": 1,
+          "name": "Pink snake fruit sweater dress",
+          "category_id": 5,
+          "description": "Hot Pink sweater dress, V neck with fruit and geometric pattern. Size S",
+          "photo_url": "https://i.pinimg.com/736x/43/93/3c/43933c240da346c5f2a341a205a0305a.jpg",
+          "price": 75.00
+      }
+  },
+  {
+      "model": "thredsapi.product",
+      "pk": 3,
+      "fields": {
+          "seller_id": 2,
+          "name": "Cat sweater",
+          "category_id": 4,
+          "description": "Sweater for a cat, size medium",
+          "photo_url": "https://i.pinimg.com/736x/36/f0/37/36f0377594f17dbd713fb37ed1a4e86c.jpg",
+          "price": 15.00
+      }
+  },
+  {
+      "model": "thredsapi.product",
+      "pk": 4,
+      "fields": {
+          "seller_id": 3,
+          "name": "Light Wash Denim Jacket",
+          "category_id": 6,
+          "description": "Light Wash Denim Jacket, vintage Guess, size small",
+          "photo_url": "hhttps://i.pinimg.com/736x/20/9e/ab/209eabc9693e7cdfab80a8d99d493c41.jpg",
+          "price": 30.00
+      }
+  },
+  {
+      "model": "thredsapi.product",
+      "pk": 5,
+      "fields": {
+          "seller_id": 6,
+          "name": "Western Button-Down Shirt",
+          "category_id": 1,
+          "description": "Black Western button down shirt with flower embroidery detail",
+          "photo_url": "https://i.pinimg.com/564x/cc/6e/35/cc6e3567a46908d369d6c6ee66b7a891.jpg",
+          "price": 40.00
+      }
+  },
+  {
+      "model": "rareapi.product",
+      "pk": 6,
+      "fields": {
+          "seller_id": 4,
+          "name": "Sonic Youth Tee",
+          "category_id": 1,
+          "description": "Sonic Youth Goo Album T-Shirt, size L",
+          "photo_url": "https://i.pinimg.com/564x/31/d4/ef/31d4effa7456a8470ff5ce40be77e6bd.jpg",
+          "price": 20.00
+      }
+  }
+]
