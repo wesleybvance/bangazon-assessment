@@ -1,0 +1,68 @@
+[
+  {
+      "model": "thredsapi.order",
+      "pk": 1,
+      "fields": {
+          "customer_id": 1,
+          "is_shipped": false,
+          "is_open": true,
+          "order_total": 0,
+          "payment_type": "Apple Pay"
+      }
+  },
+  {
+      "model": "thredsapi.order",
+      "pk": 2,
+      "fields": {
+          "customer_id": 2,
+          "is_shipped": false,
+          "is_open": true,
+          "order_total": 0,
+          "payment_type": "Paypal"
+      }
+  },
+  {
+      "model": "thredsapi.order",
+      "pk": 3,
+      "fields": {
+          "customer_id": 3,
+          "is_shipped": false,
+          "is_open": true,
+          "order_total": 0,
+          "payment_type": "Credit"
+      }
+  },
+  {
+      "model": "thredsapi.order",
+      "pk": 4,
+      "fields": {
+          "customer_id": 4,
+          "is_shipped": false,
+          "is_open": true,
+          "order_total": 0,
+          "payment_type": "Debit"
+      }
+  },
+  {
+      "model": "thredsapi.order",
+      "pk": 5,
+      "fields": {
+          "customer_id": 5,
+          "is_shipped": false,
+          "is_open": true,
+          "order_total": 0,
+          "payment_type": "Debit"
+      }
+  },
+  {
+      "model": "thredsapi.order",
+      "pk": 6,
+      "fields": {
+          "customer_id": 6,
+          "is_shipped": false,
+          "is_open": true,
+          "order_total": 0,
+          "payment_type": "Credit"
+      }
+  }
+]

@@ -1,0 +1,65 @@
+[
+  {
+      "model": "thredsapi.category",
+      "pk": 1,
+      "fields": {
+          "name": "shirt"
+      }
+  },
+  {
+      "model": "thredsapi.category",
+      "pk": 2,
+      "fields": {
+          "name": "pants"
+      }
+  },
+  {
+      "model": "thredsapi.category",
+      "pk": 3,
+      "fields": {
+          "name": "skirt"
+      }
+  },
+  {
+      "model": "thredsapi.category",
+      "pk": 4,
+      "fields": {
+          "name": "shorts"
+      }
+  },
+  {
+      "model": "thredsapi.category",
+      "pk": 5,
+      "fields": {
+          "name": "dress"
+      }
+  },
+  {
+      "model": "thredsapi.category",
+      "pk": 6,
+      "fields": {
+          "name": "outerwear"
+      }
+  },
+  {
+      "model": "thredsapi.category",
+      "pk": 7,
+      "fields": {
+          "name": "shoes"
+      }
+  },
+  {
+      "model": "thredsapi.category",
+      "pk": 8,
+      "fields": {
+          "name": "sweater"
+      }
+  },
+  {
+      "model": "thredsapi.category",
+      "pk": 9,
+      "fields": {
+          "name": "accessory"
+      }
+  }
+]

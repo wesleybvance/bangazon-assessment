@@ -1,0 +1,74 @@
+[
+  {
+      "model": "thredsapi.thredsuser",
+      "pk": 1,
+      "fields": {
+          "first_name": "Wesley",
+          "last_name": "Pants",
+          "address": "123 Main St.",
+          "image_url": "https://img.freepik.com/free-icon/user_318-159711.jpg",
+          "username": "wesleypants",
+          "uid": "1"
+      }
+  },
+  {
+      "model": "thredsapi.thredsuser",
+      "pk": 2,
+      "fields": {
+          "first_name": "Andre",
+          "last_name": "Pants",
+          "address": "123 Main St.",
+          "image_url": "https://img.freepik.com/free-icon/user_318-159711.jpg",
+          "username": "andrepants",
+          "uid": "2"
+      }
+  },
+  {
+      "model": "thredsapi.thredsuser",
+      "pk": 3,
+      "fields": {
+          "first_name": "Salem",
+          "last_name": "Pants",
+          "address": "456 Waverly St.",
+          "image_url": "https://img.freepik.com/free-icon/user_318-159711.jpg",
+          "username": "salempants",
+          "uid": "3"
+      }
+  },
+  {
+      "model": "thredsapi.thredsuser",
+      "pk": 4,
+      "fields": {
+          "first_name": "Harry",
+          "last_name": "Tucker",
+          "address": "234 Hoover St.",
+          "image_url": "https://img.freepik.com/free-icon/user_318-159711.jpg",
+          "username": "harryt",
+          "uid": "4"
+      }
+  },
+  {
+      "model": "thredsapi.thredsuser",
+      "pk": 5,
+      "fields": {
+          "first_name": "Amanda",
+          "last_name": "Z",
+          "address": "45 Barbra St.",
+          "image_url": "https://img.freepik.com/free-icon/user_318-159711.jpg",
+          "username": "zamanda",
+          "uid": "5"
+      }
+  },
+  {
+      "model": "thredsapi.thredsuser",
+      "pk": 6,
+      "fields": {
+          "first_name": "Abigail",
+          "last_name": "A",
+          "address": "2010 Main St.",
+          "image_url": "https://img.freepik.com/free-icon/user_318-159711.jpg",
+          "username": "aasper",
+          "uid": "6"
+      }
+  }
+]
