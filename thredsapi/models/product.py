@@ -12,3 +12,4 @@ class Product(models.Model):
     category_id = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='category')
     description = models.CharField(max_length=500)
     price = models.DecimalField(max_digits=7, decimal_places=2)
+    is_available = models.BooleanField(default=True)
