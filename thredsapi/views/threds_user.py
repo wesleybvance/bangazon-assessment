@@ -4,6 +4,7 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
 from thredsapi.models import ThredsUser
+from thredsapi.serializers import ThredsUserSerializer
 
 
 class ThredsUserView(ViewSet):
@@ -15,6 +16,9 @@ class ThredsUserView(ViewSet):
         Returns:
             Response -- JSON serialized Threds user
         """
+        threds_user = ThredsUser.objects.get(pk=pk)
+        serializer = ThredsUserSerializer(threds_user)
+        return Response(serializer.data)
 
 
     def list(self, request):
@@ -23,3 +27,6 @@ class ThredsUserView(ViewSet):
         Returns:
             Response -- JSON serialized list of Threds users
         """
+        threds_users = ThredsUser.objects.all()
+        serializer = ThredsUserSerializer(threds_users, many=True)
+        return Response(serializer.data)

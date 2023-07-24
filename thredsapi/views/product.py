@@ -3,7 +3,8 @@ from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from thredsapi.models import OrderProduct
+from thredsapi.models import Product
+from thredsapi.serializers import ProductSerializer
 
 
 class ProductView(ViewSet):
@@ -15,6 +16,9 @@ class ProductView(ViewSet):
         Returns:
             Response -- JSON serialized product
         """
+        product = Product.objects.get(pk=pk)
+        serializer = ProductSerializer(product)
+        return Response(serializer.data)
 
 
     def list(self, request):
@@ -23,3 +27,6 @@ class ProductView(ViewSet):
         Returns:
             Response -- JSON serialized list of products
         """
+        products = Product.objects.all()
+        serializer = ProductSerializer(products, many=True)
+        return Response(serializer.data)
