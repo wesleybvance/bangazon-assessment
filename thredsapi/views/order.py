@@ -3,7 +3,7 @@ from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from thredsapi.models import Order, ThredsUser, OrderProduct
+from thredsapi.models import Order, ThredsUser, OrderProduct, Product
 from thredsapi.serializers import OrderSerializer
 
 
@@ -43,18 +43,14 @@ class OrderView(ViewSet):
         serializer = OrderSerializer(order)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-    def close(self, request, pk):
-        """PUT request for closing an order"""
+    def update(self, request, pk):
+        """PUT request for updating an order"""
 
         order = Order.objects.filter(pk=pk).first()
-        order_total = OrderProduct.objects.filter(order_id=pk)
 
         customer = ThredsUser.objects.get(pk=request.data['customerId'])
         order.customer_id = customer
-        order.is_open = False
-        order.is_shipped = request.data["isShipped"]
-        order.order_total = order_total
-        order.payment_type = request.data["paymentType"]
+        order.order_total = request.data["orderTotal"]
         order.save()
-        
-        return Response({'messsage': 'Order Closed'}, status=status.HTTP_204_NO_CONTENT)
+
+        return Response({'message': 'Order updated'}, status=status.HTTP_204_NO_CONTENT)
