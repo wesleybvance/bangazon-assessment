@@ -30,3 +30,24 @@ class ThredsUserView(ViewSet):
         threds_users = ThredsUser.objects.all()
         serializer = ThredsUserSerializer(threds_users, many=True)
         return Response(serializer.data)
+
+    def create(self, request):
+        """POST request to create a Threds user"""
+        uid = request.META["HTTP_AUTHORIZATION"]
+        serializer = ThredsUserSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save(uid=uid)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+    def update(self, request, pk):
+        """PUT request to update a Threds user"""
+        threds_user = ThredsUser.objects.get(pk=pk)
+        uid = request.META["HTTP_AUTHORIZATION"]
+        threds_user.first_name = request.data['firstName']
+        threds_user.last_name = request.data['lastName']
+        threds_user.username = request.data['username']
+        threds_user.image_url = request.data['imageUrl']
+        threds_user.address = request.data['address']
+        threds_user.uid = uid
+        threds_user.save()
+        return Response({'message': 'Threds User Updated'}, status=status.HTTP_204_NO_CONTENT)

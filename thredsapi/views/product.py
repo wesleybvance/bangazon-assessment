@@ -27,6 +27,9 @@ class ProductView(ViewSet):
         Returns:
             Response -- JSON serialized list of products
         """
-        products = Product.objects.all()
+        products = Product.objects.all().order_by('-id')
+        seller = request.query_params.get('seller_id', None)
+        if seller is not None:
+            products = products.filter(seller_id = seller)
         serializer = ProductSerializer(products, many=True)
         return Response(serializer.data)
