@@ -35,7 +35,7 @@ class OrderProductView(ViewSet):
         return Response(serializer.data)
 
     def create(self, request):
-        """Handle POST requests for orderProduct"""
+        """Handle POST requests for orderProduct (add to cart)"""
 
         order = Order.objects.get(pk=request.data['orderId'])
         product = Product.objects.get(pk=request.data['productId'])
@@ -48,3 +48,9 @@ class OrderProductView(ViewSet):
         order_product.save()
         serializer = OrderProductSerializer(order_product)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+    
+    def destroy(self, request, pk):
+        """DELETE request to delete an orderproduct/remove from cart"""
+        order_product = OrderProduct.objects.get(pk=pk)
+        order_product.delete()
+        return Response({'message': 'Product Removed From Cart'}, status=status.HTTP_204_NO_CONTENT)
