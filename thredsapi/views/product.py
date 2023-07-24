@@ -71,4 +71,10 @@ class ProductView(ViewSet):
         product.seller_id=seller
         product.save()
 
-        return Response(None, status=status.HTTP_204_NO_CONTENT)
+        return Response({'message': 'Product Updated'}, status=status.HTTP_204_NO_CONTENT)
+
+    def destroy(self, request, pk):
+        """DELETE request to delete a product"""
+        product = Product.objects.get(pk=pk)
+        product.delete()
+        return Response({'message': 'Product Deleted'}, status=status.HTTP_204_NO_CONTENT)
