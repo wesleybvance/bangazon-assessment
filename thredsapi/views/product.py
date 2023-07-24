@@ -3,7 +3,7 @@ from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from thredsapi.models import Product, ThredsUser
+from thredsapi.models import Product, ThredsUser, Category
 from thredsapi.serializers import ProductSerializer
 
 
@@ -41,11 +41,12 @@ class ProductView(ViewSet):
     def create(self, request):
         """POST request for product"""
         seller_id = ThredsUser.objects.get(pk=request.data["sellerId"])
+        category = Category.objects.get(pk=request.data["categoryId"])
 
         product = Product(
           name=request.data['name'],
           photo_url=request.data['photoUrl'],
-          category_id=request.data['categoryId'],
+          category_id=category,
           description=request.data['description'],
           price=request.data['price'],
           seller_id=seller_id,
