@@ -1,8 +1,8 @@
 """View module for handling requests about orderProducts"""
-from django.http import HttpResponseServerError
+# from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
-from rest_framework import serializers, status
+from rest_framework import status
 from thredsapi.models import Product, ThredsUser, Category
 from thredsapi.serializers import ProductSerializer
 

@@ -1,8 +1,8 @@
 """View module for handling requests about orderProducts"""
-from django.http import HttpResponseServerError
+# from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
-from rest_framework import serializers, status
+from rest_framework import status
 from thredsapi.models import OrderProduct, Order, Product
 from thredsapi.serializers import OrderProductSerializer
 
@@ -48,7 +48,7 @@ class OrderProductView(ViewSet):
         order_product.save()
         serializer = OrderProductSerializer(order_product)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
-    
+
     def destroy(self, request, pk):
         """DELETE request to delete an orderproduct/remove from cart"""
         order_product = OrderProduct.objects.get(pk=pk)
