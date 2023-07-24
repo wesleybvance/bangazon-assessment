@@ -29,7 +29,11 @@ class ProductView(ViewSet):
         """
         products = Product.objects.all().order_by('-id')
         seller = request.query_params.get('seller_id', None)
+        category = request.query_params.get('category_id', None)
         if seller is not None:
             products = products.filter(seller_id = seller)
+        if category is not None:
+            products = products.filter(category_id = category)
+
         serializer = ProductSerializer(products, many=True)
         return Response(serializer.data)
