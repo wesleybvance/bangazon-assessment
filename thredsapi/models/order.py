@@ -8,4 +8,4 @@ class Order(models.Model):
     is_shipped = models.BooleanField(default=True)
     is_open = models.BooleanField(default=True)
     order_total = models.DecimalField(null=True, max_digits=10, decimal_places=2)
-    payment_type = models.CharField(max_length=100)
+    payment_type = models.CharField(null=True, max_length=100, default="")
