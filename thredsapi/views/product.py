@@ -55,3 +55,20 @@ class ProductView(ViewSet):
         product.save()
         serializer = ProductSerializer(product)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+    def update(self, request, pk):
+        """PUT request for product"""
+        category = Category.objects.get(pk=request.data["categoryId"])
+        seller = ThredsUser.objects.get(pk=request.data['sellerId'])
+
+        product = Product.objects.filter(pk=pk).first()
+        product.name=request.data['name']
+        product.photo_url=request.data['photoUrl']
+        product.category_id=category
+        product.description=request.data['description']
+        product.price=request.data['price']
+        product.is_available=request.data['isAvailable']
+        product.seller_id=seller
+        product.save()
+
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
