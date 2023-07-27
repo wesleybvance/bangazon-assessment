@@ -2,8 +2,9 @@
 # from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
+from rest_framework.decorators import action
 from rest_framework import status
-from thredsapi.models import Order, ThredsUser
+from thredsapi.models import Order, ThredsUser, OrderProduct
 from thredsapi.serializers import OrderSerializer
 
 
@@ -54,3 +55,17 @@ class OrderView(ViewSet):
         order.save()
 
         return Response({'message': 'Order updated'}, status=status.HTTP_204_NO_CONTENT)
+
+    @action(methods=['post'], detail=True)
+    def calculate_total(self, request, pk):
+        """POST request to calculate the total of 
+        an order from the orderProducts"""
+
+        all_order_products = OrderProduct.objects.all()
+        order_products = all_order_products.filter(order_id=pk)
+
+        total = 0
+        for o_p in order_products:
+            total += o_p.product_id.price
+        return Response(total)
+        

@@ -12,4 +12,3 @@ class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
         fields = ('id', 'customer_id', 'is_shipped', 'is_open', 'order_total', 'payment_type')
-        
