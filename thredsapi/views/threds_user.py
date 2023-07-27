@@ -51,3 +51,9 @@ class ThredsUserView(ViewSet):
         threds_user.uid = uid
         threds_user.save()
         return Response({'message': 'Threds User Updated'}, status=status.HTTP_204_NO_CONTENT)
+
+    def destroy(self, request, pk):
+        """DELETE request to delete a Threds user"""
+        threds_user=ThredsUser.objects.get(pk=pk)
+        threds_user.delete()
+        return Response({'message': 'User Deleted'}, status=status.HTTP_204_NO_CONTENT)
