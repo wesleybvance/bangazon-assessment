@@ -21,7 +21,6 @@ class OrderView(ViewSet):
         serializer = OrderSerializer(order)
         return Response(serializer.data)
 
-
     def list(self, request):
         """Handle GET requests to get all orders
 
@@ -34,10 +33,10 @@ class OrderView(ViewSet):
 
     def create(self, request):
         """POST request for order"""
-        customer_id=ThredsUser.objects.get(pk=request.data['customerId'])
+        customer_id = ThredsUser.objects.get(pk=request.data['customerId'])
 
         order = Order(
-          customer_id=customer_id,
+            customer_id=customer_id,
         )
 
         order.save()
@@ -52,11 +51,18 @@ class OrderView(ViewSet):
         customer = ThredsUser.objects.get(pk=request.data['customerId'])
         order.customer_id = customer
         order.order_total = request.data["orderTotal"]
+        order.is_open = request.data["isOpen"]
         order.save()
 
         return Response({'message': 'Order updated'}, status=status.HTTP_204_NO_CONTENT)
 
-    @action(methods=['post'], detail=True)
+    def destroy(self, request, pk):
+        """DELETE request to delete an order"""
+        order = Order.objects.get(pk=pk)
+        order.delete()
+        return Response({'message': 'Order Deleted'}, status=status.HTTP_204_NO_CONTENT)
+
+    @action(methods=['post'], detail=True, url_path='calculate_total', url_name='calculate_total')
     def calculate_total(self, request, pk):
         """POST request to calculate the total of 
         an order from the orderProducts"""
@@ -67,5 +73,32 @@ class OrderView(ViewSet):
         total = 0
         for o_p in order_products:
             total += o_p.product_id.price
-        return Response(total)
-        
+        return Response(total, status=status.HTTP_200_OK)
+
+    # @action(methods=['post'], detail=True, url_path='check_product', url_name='check_product')
+    # def check_product(self, request, pk):
+    #     """POST request to evaluate whether
+    #     a product's id matches any product_ids in
+    #     a list of order_products"""
+    #     order_products = OrderProduct.objects.filter(order_id=pk)
+    #     new_product_id = request.data['productId']
+
+    #     checked_ids = [product.product_id for product in order_products]
+
+    #     if new_product_id in checked_ids:
+    #         return Response(True)
+    #     else:
+    #         return Response(False)
+
+    @action(methods=['post'], detail=True, url_path='check_product', url_name='check_product')
+    def check_product(self, request, pk):
+        """POST request to evaluate whether
+        a product's id matches any product_ids in
+        a list of order_products"""
+        order_products = OrderProduct.objects.filter(order_id=pk)
+
+        for product in order_products:
+            if product.product_id == request.data['productId']:
+                return Response(True)
+
+        return Response(False)

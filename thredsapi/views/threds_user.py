@@ -2,9 +2,13 @@
 # from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
+from rest_framework.decorators import action
 from rest_framework import status
-from thredsapi.models import ThredsUser
+from django.db.models import Q
+from thredsapi.models import ThredsUser, Order
 from thredsapi.serializers import ThredsUserSerializer
+from thredsapi.serializers import OrderSerializer
+
 
 
 class ThredsUserView(ViewSet):
@@ -57,3 +61,15 @@ class ThredsUserView(ViewSet):
         threds_user=ThredsUser.objects.get(pk=pk)
         threds_user.delete()
         return Response({'message': 'User Deleted'}, status=status.HTTP_204_NO_CONTENT)
+
+    @action(methods=['post'], detail=True, url_path='check_cart', url_name='check_cart')
+    def check_cart(self, request, pk):
+        """POST request to check if an open order
+        exists for the current user"""
+
+        open_cart = Order.objects.filter(
+            Q(customer_id=pk) & Q(is_open=True))
+
+        serializer = OrderSerializer(open_cart, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+        # return Response(open_cart, status=status.HTTP_200_OK)
