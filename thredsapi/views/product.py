@@ -78,3 +78,4 @@ class ProductView(ViewSet):
         product = Product.objects.get(pk=pk)
         product.delete()
         return Response({'message': 'Product Deleted'}, status=status.HTTP_204_NO_CONTENT)
+        
